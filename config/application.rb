@@ -21,7 +21,7 @@ module RailsDemo
   class Application < Rails::Application
     
     config.load_defaults 5.2
-    
+
     config.generators do |generate|
       generate.helper false
       generate.assets false
@@ -32,3 +32,4 @@ module RailsDemo
       generate.system_tests false
     end
   end
+end
