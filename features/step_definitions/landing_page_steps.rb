@@ -9,5 +9,5 @@ Then("I should see {string}") do |content|
 Given("the following articles exists") do |table|
     table.hashes.each do |article|
     Article.create!(article)
-  end
+  end  
 end
