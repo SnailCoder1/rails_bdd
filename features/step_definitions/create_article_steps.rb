@@ -2,12 +2,12 @@ Given("I visit the {string} page") do |string|
     visit root_path
 end 
 
-When("I click {string} buttom") do |string|
-    click_on string
+When("I click {string} buttom") do |element|
+    click_on element
 end
 
-When("I fill in {string} with {string}") do |string, string2|
-
+When("I fill in {string} with {string}") do |input, content|
+fill_in input, with: content
 end
 
 When("I click {string} button") do |string|
