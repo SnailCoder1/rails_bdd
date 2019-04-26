@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+
+  gem 'devise'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'pry-byebug'
