@@ -1,14 +1,23 @@
 class CommentsController < ApplicationController
-    def create 
-        @article = article.find(params[:article_id])
-        @comment = @article.comments.create(params[:comment].permit(:name, :body))
-        redirect_to article_path(@article)
+
+
+  http_basic_authenticate_with name: "crafted", password: "wrap009", only: :destroy
+ 
+  def create
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.create(comment_params)
+    redirect_to article_path(@article)
+  end
+ 
+  def destroy
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+    @comment.destroy
+    redirect_to article_path(@article)
+  end
+ 
+  private
+    def comment_params
+      params.require(:comment).permit(:commenter, :body)
     end
-
-    private
-        def comment_params
-            params.require(:comment). permit(:commenter, :body)
-        end
 end
-
-
